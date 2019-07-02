@@ -1,0 +1,11 @@
+Contact.all.map do |product|
+{
+  id: product[:id],
+  first_name: product[:first_name],
+  last_name: product[:last_name],
+  email: product[:email],
+  phone_number: product[:phone_number],
+  created_at: product[:created_at],
+  updated_at: product[:updated_at]
+}
+end
