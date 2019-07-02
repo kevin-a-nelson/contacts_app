@@ -1,9 +1,11 @@
 class Api::ContactsController < ApplicationController
   def the_contact
-    @all_contacts = []
-    Contact.all.each do |contact|
-      @all_contacts << contact
-    end
+    @contact = Contact.first
     render 'contact.json.jb'
+  end
+
+  def all
+    @contacts = Contact.all
+    render 'all_contacts.json.jb'
   end
 end
