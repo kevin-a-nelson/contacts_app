@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     delete '/contacts/:id' => 'contacts#destroy'
 
     post '/users' => 'users#create'
+    get '/users/:id' => 'users#show'
+    
     post '/sessions' => 'sessions#create'
   end
 end
