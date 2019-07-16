@@ -1,12 +1,15 @@
 class Api::ContactsController < ApplicationController
-
   def show
     @contact = Contact.all.find_by(id: params['id'])
     render 'show.json.jb'
   end
 
   def index
-    @contacts = Contact.all
+    if current_user
+      @contacts = current_user.contacts
+    else
+      @contacts = []
+    end
     render 'index.json.jb'
   end
 
@@ -17,7 +20,8 @@ class Api::ContactsController < ApplicationController
       middle_name: params['middle_name'],
       phone_number: params['phone_number'],
       email: params['email'],
-      bio: params['bio']
+      bio: params['bio'],
+      user_id: current_user.id
     )
     if @contact.save
       render 'show.json.jb'

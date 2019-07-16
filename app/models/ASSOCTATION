@@ -1,0 +1,18 @@
+ASSOCTATION
+
+products 
+belongs_to :suppliers
+has_many :orders
+
+
+suppliers
+has_many :products
+
+users
+has_many :orders
+has_many :products
+
+
+orders 
+belongs_to :user
+belongs_to :product
